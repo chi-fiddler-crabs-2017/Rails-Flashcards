@@ -1,0 +1,12 @@
+<h1> <%= @card.question %> </h1>
+
+<%= form_for :guess, url: guesses_path do |f| %>
+<p>
+<%= f.label :answer %>
+<%= f.text_field :guess_text %>
+</p>
+<p>
+  <%= f.submit "Guess" %>
+</p>
+
+<% end %>

@@ -1,7 +1,10 @@
 class RoundsController < ApplicationController
 
   def create
-    @round = Round.create(user_id: 1, deck_id: params[:deck_id])
+    deck = Deck.find(params[:deck_id])
+    @round = Round.create(user_id: 1, deck: deck)
+    redirect_to card_path(deck.cards.first)
+    session[:round_id] = @round.id
   end
 
 end

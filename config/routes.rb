@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :decks do
     resources :rounds
   end
-  resources :users
+  resources :users, :cards, :guesses
+
+
   root "decks#index"
 
 
