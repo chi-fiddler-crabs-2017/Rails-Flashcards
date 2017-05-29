@@ -1,0 +1,8 @@
+<h1>Homepage</h1>
+<ul>
+<% @decks.each do |deck| %>
+
+  <li><%= link_to deck.topic, deck_path(deck.id) %></li>
+
+<% end %>
+</ul>
