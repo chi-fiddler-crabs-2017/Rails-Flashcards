@@ -35,6 +35,15 @@ card_context = { question: "True or false?  Otters wear plaid pants in July?", a
 
 Card.create!(card_context)
 
+user = User.new( username: "Jimmy John", email: "jj@gmail.com",password:"password" )
+user.save
+
+Round.create!( user_id: 1, deck_id: 1)
+
+Guess.create!( card_id: 1, round_id: 1, correct: false )
+Guess.create!( card_id: 2, round_id: 1, correct: true )
+Guess.create!( card_id: 3, round_id: 1, correct: true )
+Guess.create!( card_id: 4, round_id: 1, correct: true )
 
 
 
