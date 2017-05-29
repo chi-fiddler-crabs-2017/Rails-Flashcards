@@ -1,3 +1,5 @@
 <h2> <%= @deck.topic%> </h2>
 
 <h3> Number of Cards: <%= @deck.cards.count %>
+
+<%= button_to "START ROUND", deck_rounds_path(@deck.id) %>
