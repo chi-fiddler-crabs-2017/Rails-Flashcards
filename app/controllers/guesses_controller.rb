@@ -1,9 +1,9 @@
 class GuessesController < ApplicationController
   def create
-    p params
+
     @card = Card.find(params[:card_id])
     @guess = Guess.create(guess_text: params[:guess][:guess_text], card_id: @card.id, round_id: session[:round_id])
-     p @guess
+
     if @card.answer == @guess.guess_text
       @guess.correct = true
     else
@@ -15,8 +15,10 @@ class GuessesController < ApplicationController
   end
 
   def show
+    # p session[:round_id]
      @card = Card.find(params[:card_id])
      @guess = Guess.find(params[:id])
+     @round = Round.find(session[:round_id])
 
   end
 end

@@ -1,1 +1,18 @@
-<h1> SHOW </h1>
+<% if @guess.correct == true %>
+
+<h1>CORRECT</h1>
+
+<% else %>
+
+<h1>WRONG</h1>
+<p>the correct answer was:  <%=@card.answer%></p>
+
+<% end %>
+
+<% if @card.id < @card.deck.cards.last.id %>
+<%= link_to "Next", card_path(@card.id + 1) %>
+<% else %>
+
+<p>You got <%=@round.guesses.where(correct: true).count%> out of <%=@card.deck.cards.count%></p>
+<%= link_to "Home", decks_path %>
+<% end %>
